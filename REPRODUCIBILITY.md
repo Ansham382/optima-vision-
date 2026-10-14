@@ -58,15 +58,37 @@ The split is stratified by class and uses random seed 42.
 
 The official 10,000-image test set remains separate.
 
-### PCA
+### PCA Component Selection
 
 PCA is fitted exclusively on the model-fitting subset.
 
-Explained-variance analysis produced the following candidate
-component counts:
+The project uses a 95% cumulative explained-variance threshold
+for its primary PCA representation.
 
-- 90% variance: 84 components
-- 95% variance: 187 components
-- 99% variance: 459 components
+The minimum number of components satisfying this threshold was
+187, reducing the original 784-dimensional representation to
+187 dimensions.
 
-The final PCA component-selection criterion is to be determined.
+Validation data is transformed using the PCA model fitted on the
+model-fitting subset. The validation data is not used to fit PCA.
+
+## Checkpoint 1 Baseline
+
+Model: Logistic Regression
+
+PCA components: 187
+
+PCA selection criterion:
+Minimum number of components required to retain at least
+95% cumulative explained variance.
+
+Model-fitting samples: 48,000
+
+Validation samples: 12,000
+
+Official test samples: 10,000
+
+Random seed: 42
+
+The official test set was not used for PCA fitting or model
+hyperparameter selection.
