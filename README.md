@@ -101,3 +101,9 @@ optima-vision/
 │   ├── 02-preprocessing.ipynb
 │   ├── 03-models.ipynb
 │  
+### Current Headline Result
+
+**Model:** RBF Support Vector Machine  
+**PCA Components:** 187  
+**Official Test Accuracy:** 89.91%  
+**Official Test Macro-F1:** 89.90%
