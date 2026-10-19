@@ -92,3 +92,73 @@ Random seed: 42
 
 The official test set was not used for PCA fitting or model
 hyperparameter selection.
+## Model Selection
+
+Hyperparameter selection was performed exclusively using the
+validation subset.
+
+### KNN
+
+Candidate k values:
+
+3, 5, 7, 9, 11
+
+Selected:
+
+k = 5
+
+Validation accuracy: 0.866167
+
+### RBF SVM
+
+Candidate C values:
+
+1, 10, 100
+
+Candidate gamma values:
+
+scale, 0.01, 0.001
+
+The hyperparameter search used a stratified 15,000-example
+subset of the model-fitting data.
+
+Selected:
+
+C = 10  
+gamma = scale
+
+Search-stage validation accuracy: 0.891250
+
+The selected configuration was subsequently trained using the
+complete model-fitting subset.
+
+### Random Forest
+
+Selected configuration:
+
+n_estimators = 200  
+max_depth = 40
+
+Validation accuracy during tuning: 0.869583
+
+### MLP
+
+Selected architecture:
+
+(128, 64)
+
+Activation:
+
+tanh
+
+Maximum iterations:
+
+200
+
+Validation accuracy during initial tuning:
+
+0.893750
+
+The initial 100-iteration model reached the maximum iteration
+limit before satisfying the optimizer convergence criterion.
+A follow-up convergence experiment was therefore performed.
